@@ -1,0 +1,39 @@
+Docker Commands:
+docker system prune | to delete all containers
+docker run -it busybox sh | input/outut in shellscript
+docker ps --all | lists all container history
+
+
+docker build --progress=plain | to see the output for the build
+docker build --no-cache --progress=plain | Disabling Cache
+DOCKER_BUILDKIT=0 docker build | to disable the buildkit
+
+
+docker build . | take docker file and make an image
+docker build -t pouros/redis:latest . | build image and have a certain (tag)name so you can run it
+docker run pouros/redis | how to run the builded image
+docker tag [image id] [name] | how to tag an already builded image
+dokcer run -p 8080:8080 <image name> | for port mapping from:to
+WORKDIR /usr/app | specified directory to copy
+docker exec -it c8d5e86485b1 sh | to execute 
+
+docker-compose up | docker run the image
+docker-compose up --build | docker run and build image
+docker-compose up -d | launch in background
+docker-compose down | stop all containers
+docker-compose ps | pnly in same directory as the yml will work
+docker run -it cd66952fa8183c6d4408be6795269b1728ceac0d6711d2e43027228e830f5bb9 npm run test
+
+For restart in docker compose:
+restart: "no" - never restart
+		  always - always restarting
+		  on-failure - onlky on exit codes not equal to zero
+		  unless-stopped - will not restart if we stopped it
+
+nodejs
+npm install | installs dependencies
+npm start | start server
+npm run start | starts up a development server (for dev use only)
+npm run test | Runs tests with project
+npm run build | Builds a prod version of the apprlication
+docker run -it -p 3000:3000 -v /app/node_modules -v ${PWD}:/app [imageId] | Run the build with docker volumes
